@@ -43,7 +43,7 @@ is reached, sender will block until at least one of the messages is acknowledged
 ## Installation
 To install via *pip*, use
 ```
-pip3 install https://github.com/agapebondservant/scdf-ml-utils/zipball/main
+pip3 install https://github.com/agapebondservant/ml-scdf-rabbitutils/zipball/main
 ```
 
 ### Sample Usage
