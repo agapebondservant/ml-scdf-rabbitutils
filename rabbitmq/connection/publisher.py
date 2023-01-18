@@ -54,7 +54,9 @@ class Publisher(connection.Connection):
         """
         super(Publisher, self).__init__()
         self.host = host
-        self.parameters = pika.ConnectionParameters(host=host,
+        self.parameters = pika.ConnectionParameters(heartbeat=600,
+                                                    blocked_connection_timeout=300,
+                                                    host=host,
                                                     virtual_host=virtual_host,
                                                     credentials=pika.PlainCredentials(username, password))
         self.channel = None
