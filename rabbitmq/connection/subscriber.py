@@ -128,9 +128,7 @@ class Subscriber(connection.Connection):
                                                     host=host,
                                                     virtual_host=virtual_host,
                                                     credentials=pika.PlainCredentials(username, password))"""
-        self.parameters = pika.ConnectionParameters(heartbeat=600,
-                                                    blocked_connection_timeout=300,
-                                                    host=host,
+        self.parameters = pika.ConnectionParameters(host=host,
                                                     virtual_host=virtual_host,
                                                     credentials=pika.PlainCredentials(username, password))
         self.host = host
