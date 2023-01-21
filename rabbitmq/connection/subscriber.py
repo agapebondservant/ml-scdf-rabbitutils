@@ -123,6 +123,11 @@ class Subscriber(connection.Connection):
             If specified, routing key that will be used to bind the exchange to the queue (exchange must also be specified)
         """
         super(Subscriber, self).__init__()
+        """self.parameters = pika.ConnectionParameters(heartbeat=600,
+                                                    blocked_connection_timeout=300,
+                                                    host=host,
+                                                    virtual_host=virtual_host,
+                                                    credentials=pika.PlainCredentials(username, password))"""
         self.parameters = pika.ConnectionParameters(heartbeat=600,
                                                     blocked_connection_timeout=300,
                                                     host=host,
