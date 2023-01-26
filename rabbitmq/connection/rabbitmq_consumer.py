@@ -15,7 +15,8 @@ class RabbitMQConsumer(subscriber.Subscriber):
                  prefetch_count=1000,
                  conn_retry_count=0,
                  exchange=None,
-                 binding_key=None):
+                 binding_key=None,
+                 passive=False):
 
         """
         Constructor.
@@ -50,4 +51,4 @@ class RabbitMQConsumer(subscriber.Subscriber):
 
         super(RabbitMQConsumer, self).__init__(host, username, password, virtual_host, receive_callback, queue,
                                                queue_arguments, consumer_arguments, offset, prefetch_count,
-                                               conn_retry_count, exchange, binding_key)
+                                               conn_retry_count, exchange, binding_key, passive)

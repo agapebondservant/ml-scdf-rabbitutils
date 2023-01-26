@@ -21,6 +21,7 @@ class Subscriber(connection.Connection):
         self.channel.add_on_close_callback(lambda ch, err: self.on_channel_closed(ch, err))
         self.channel.queue_declare(queue=self.queue, durable=True,
                                    callback=lambda frame: self.on_queue_declared(frame),
+                                   passive=self.passive,
                                    arguments=self.queue_arguments)
 
     def on_queue_declared(self, frame):
@@ -89,7 +90,8 @@ class Subscriber(connection.Connection):
                  prefetch_count=1000,
                  conn_retry_count=0,
                  exchange=None,
-                 binding_key=None):
+                 binding_key=None,
+                 passive=False):
 
         """
         Constructor.
@@ -143,3 +145,4 @@ class Subscriber(connection.Connection):
         self.binding_key = binding_key
         self.channel = None
         self._connection = None
+        self.passive = passive
